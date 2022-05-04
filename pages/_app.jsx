@@ -7,10 +7,11 @@ import "simplebar/dist/simplebar.min.css";
 import OpenGraphTags from "utils/OpenGraphTags";
 import React, { Fragment, useEffect } from "react";
 import GoogleAnalytics from "utils/GoogleAnalytics";
-import { AppProvider } from "contexts/app/AppContext";
+// import { AppProvider } from "contexts/app/AppContext";
 import createEmotionCache from "../src/createEmotionCache";
 import { CacheProvider } from "@emotion/react"; // Client-side cache, shared for the whole session of the user in the browser.
 import axios from "axios";
+import { wrapper } from '../src/redux/Store';
 
 const clientSideEmotionCache = createEmotionCache();
 // export const cache = createCache({ key: 'css', prepend: true })
@@ -45,13 +46,13 @@ const App = ({
         <GoogleAnalytics />
         <OpenGraphTags />
       </Head>
-      <AppProvider themedata={pageProps.themedata}>
+      {/* <AppProvider themedata={pageProps.themedata}> */}
         <MuiTheme themedata={pageProps.themedata}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
         </MuiTheme>
-      </AppProvider>
+      {/* </AppProvider> */}
     </CacheProvider>
   );
 }; // Only uncomment this method if you have blocking data requirements for
@@ -84,7 +85,6 @@ App.getInitialProps = async appctx => {
         googleplus: "",
         primary_text: "#2B3445",
         secondary_text: "#373F50",
-        sections: ['Section3', "sections2", 'Section1', "sections4"]
     }
     }
   }
@@ -97,4 +97,5 @@ App.getInitialProps = async appctx => {
   return { pageProps: { ...appProps }, mobxstore: appctx.ctx.store }
 }
 
-export default App;
+// export default App;
+export default wrapper.withRedux(App);

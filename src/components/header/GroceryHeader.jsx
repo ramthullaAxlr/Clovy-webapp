@@ -7,7 +7,7 @@ import ShoppingBagOutlined from "components/icons/ShoppingBagOutlined";
 // import MiniCart from "components/mini-cart/MiniCart";
 import GrocerySearchBox from "components/search-box/GrocerySearchBox";
 import Login from "components/sessions/Login";
-import { useAppContext } from "contexts/app/AppContext";
+// import { useAppContext } from "contexts/app/AppContext";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import PersonOutline from "@mui/icons-material/PersonOutline";
 import {
@@ -21,6 +21,7 @@ import {
   useTheme,
 } from "@mui/material";
 import Link from "next/link";
+import { useSelector, useDispatch } from "react-redux";
 
 import React, { useState } from "react";
 import { HeaderWrapper } from "./Header"; // component props interface
@@ -36,8 +37,7 @@ const GroceryHeader = ({ isFixed }) => {
 
   const toggleDialog = () => setDialogOpen(!dialogOpen);
 
-  const { state } = useAppContext();
-  const { cartList } = state.cart;
+  const { cartList } = useSelector((state) => state.cart);
   const cartHandle = (
     <Badge badgeContent={cartList.length} color="primary">
       <Box
