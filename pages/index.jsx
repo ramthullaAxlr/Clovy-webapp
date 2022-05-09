@@ -17,7 +17,7 @@ const IndexPage = () => {
   return (
     <GroceryLayout showNavbar={false}>
       <FDBanner />
-      <FDBestSellers flashDeals={best_selling} />
+      <FDBestSellers />
       <PageFooter />
     </GroceryLayout>
   );
