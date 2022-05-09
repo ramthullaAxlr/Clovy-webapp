@@ -5,8 +5,11 @@ import React, { useEffect, useState } from "react";
 import Carousel from "../carousel/Carousel";
 import CategorySectionCreator from "../CategorySectionCreator";
 import ProductCard1 from "../product-cards/ProductCard1";
+import { useSelector, useDispatch } from "react-redux";
 
-const Section2 = ({ flashDeals }) => {
+const Section2 = () => {
+  const { best_selling } = useSelector((state) => state.all_sections);
+
   const [visibleSlides, setVisibleSlides] = useState(4);
   const width = useWindowSize();
   useEffect(() => {
@@ -23,11 +26,11 @@ const Section2 = ({ flashDeals }) => {
     >
       <Box mt={-0.5} mb={-0.5}>
         <Carousel
-          totalSlides={flashDeals.length}
+          totalSlides={best_selling.length}
           visibleSlides={visibleSlides}
           infinite={true}
         >
-          {flashDeals.map((item, ind) => {
+          {best_selling.map((item, ind) => {
             return (
               <Box py={0.5} key={ind}>
                 <ProductCard1

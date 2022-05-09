@@ -3,8 +3,11 @@ import Carousel from "components/carousel/Carousel";
 import Navbar from "components/navbar/Navbar";
 import { Box, Container } from "@mui/material";
 import { Fragment } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-const Section1 = ({ carouselData }) => {
+const Section1 = () => {
+  const { home_banners } = useSelector((state) => state.Home_banners);
+
   return (
     <Fragment>
       {/* <Navbar /> */}
@@ -23,8 +26,8 @@ const Section1 = ({ carouselData }) => {
             showArrow={false}
             spacing="0px"
           >
-            {carouselData &&
-              carouselData.map((data, ind) => (
+            {home_banners &&
+              home_banners.map((data, ind) => (
                 <CarouselCard1 carousel={data} key={ind} />
               ))}
           </Carousel>
