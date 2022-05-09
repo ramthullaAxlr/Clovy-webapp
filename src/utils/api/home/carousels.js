@@ -1,14 +1,15 @@
 import axios from "axios";
+import { BASE_URL } from '../../../constants/index'
 export const getMainCarousel = async () => {
-  const response = await axios.get("http://localhost:5000/api/sliders/getSliders");
+  const response = await axios.get(BASE_URL + "api/sliders/getSliders");
   return response.data.result.sliders ? response.data.result.sliders : [];
 };
 export const getFlashDeals = async () => {
-  const response = await axios.get("http://localhost:5000/api/products/bestsellingsproducts");
+  const response = await axios.get(BASE_URL + "api/products/bestsellingsproducts");
   return response.data.result.products ? response.data.result.products : [];
 };
 export const getbestSellers = async () => {
-  const response = await axios.get("http://localhost:5000/api/products/bestsellingsproducts");
+  const response = await axios.get(BASE_URL + "api/products/bestsellingsproducts");
   return response.data.result.products ? response.data.result.products : [];
 };
 export const getTopCategories = async () => {

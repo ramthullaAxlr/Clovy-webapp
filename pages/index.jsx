@@ -10,11 +10,8 @@ import { wrapper } from "../src/redux/Store";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-  getBigDiscountList,
   getbestSellers,
-  getFlashDeals,
   getMainCarousel,
-  getTopCategories,
 } from "utils/api/home/carousels";
 
 const IndexPage = () => {
