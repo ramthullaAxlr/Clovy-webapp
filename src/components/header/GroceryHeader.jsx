@@ -4,7 +4,7 @@ import CategoryMenu from "components/categories/CategoryMenu";
 import FlexBox from "components/FlexBox";
 import Category from "components/icons/Category";
 import ShoppingBagOutlined from "components/icons/ShoppingBagOutlined";
-// import MiniCart from "components/mini-cart/MiniCart";
+import MiniCart from "components/mini-cart/MiniCart";
 import GrocerySearchBox from "components/search-box/GrocerySearchBox";
 import Login from "components/sessions/Login";
 // import { useAppContext } from "contexts/app/AppContext";
@@ -144,7 +144,7 @@ const GroceryHeader = ({ isFixed }) => {
             },
           }}
         >
-          {/* <MiniCart toggleSidenav={toggleSidenav} /> */}
+          <MiniCart toggleSidenav={toggleSidenav} />
         </Drawer>
       </Container>
     </HeaderWrapper>

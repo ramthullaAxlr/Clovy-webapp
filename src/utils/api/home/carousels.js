@@ -1,22 +1,25 @@
-import axios from "axios";
-import { BASE_URL } from '../../../constants/index'
-export const getMainCarousel = async () => {
-  const response = await axios.get(BASE_URL + "api/sliders/getSliders");
-  return response.data.result.sliders ? response.data.result.sliders : [];
+import HttpCalls from 'services/ApiCall';
+import NextCookies from 'next-cookies';
+import {headersData} from 'services/Services';
+
+
+export const _getSliders = async (payload) => {
+  console.log('sadasd')
+  let { _do_call } = HttpCalls;
+  let headers = await headersData(NextCookies({ ctx: '' }));
+  return _do_call(
+    'GET',
+    'api/sliders/getSliders',
+    headers
+  );
 };
-export const getFlashDeals = async () => {
-  const response = await axios.get(BASE_URL + "api/products/bestsellingsproducts");
-  return response.data.result.products ? response.data.result.products : [];
-};
-export const getbestSellers = async () => {
-  const response = await axios.get(BASE_URL + "api/products/bestsellingsproducts");
-  return response.data.result.products ? response.data.result.products : [];
-};
-export const getTopCategories = async () => {
-  const response = await axios.get("/api/super-store/top-categories");
-  return response.data;
-};
-export const getBigDiscountList = async () => {
-  const response = await axios.get("/api/super-store/big-discounts");
-  return response.data;
+
+export const _getBestsellers = async (payload) => {
+  let { _do_call } = HttpCalls;
+  let headers = await headersData(NextCookies({ ctx: '' }));
+  return _do_call(
+    'GET',
+    'api/products/bestsellingsproducts',
+    headers
+  );
 };

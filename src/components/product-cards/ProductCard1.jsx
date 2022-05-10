@@ -188,7 +188,7 @@ const ProductCard1 = ({
 
             <FlexBox alignItems="center" mt={0.5}>
               <Box pr={1} fontWeight="600" color="primary.main">
-                ${(price - (price * discount) / 100).toFixed(2)}
+              ₹{(price - (price * discount) / 100).toFixed(2)}
               </Box>
               {!!discount && (
                 <Box color="grey.600" fontWeight="600">
